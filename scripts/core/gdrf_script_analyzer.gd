@@ -1,0 +1,28 @@
+@tool
+class_name GDRF_ScriptAnalyzer extends RefCounted
+
+static func build_context( edit : CodeEdit ) -> GDRF_ScriptContext :
+	var ctx : GDRF_ScriptContext = GDRF_ScriptContext.new(edit);
+	
+	# basic extraction: expand later
+	ctx.word_under_caret = _get_word_under_caret(edit);
+	ctx.line_until_caret = ctx.current_line_text.substr(0, ctx.caret_col);
+	
+	# TODO: Detect if inside a function, current function name, etc
+	# TODO: Regex for function calls, signal emits, connects...
+	
+	return ctx
+	
+static func _get_word_under_caret( edit : CodeEdit ) -> String :
+	var line : String = edit.get_line(edit.get_caret_line());
+	var col : int = edit.get_caret_column();
+	
+	# very simple word boundary - improve later
+	var start : int = col;
+	while ( start > 0 && (line[start - 1].is_valid_identifier() || line[start - 1] == "_") ) :
+		start -= 1;
+	var end : int = col;
+	while ( end < line.length() && (line[end].is_valid_identifier() || line[end] == "_") ) :
+		end += 1;
+	
+	return line.substr(start, end - start);
