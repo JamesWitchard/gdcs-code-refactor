@@ -1,8 +1,8 @@
 @tool
-class_name GDRF_ScriptAnalyzer extends RefCounted
+class_name GDCR_ScriptAnalyzer extends RefCounted
 
-static func build_context( edit : CodeEdit ) -> GDRF_ScriptContext :
-	var ctx : GDRF_ScriptContext = GDRF_ScriptContext.new(edit);
+static func build_context( edit : CodeEdit ) -> GDCR_ScriptContext :
+	var ctx : GDCR_ScriptContext = GDCR_ScriptContext.new(edit);
 	
 	# basic extraction: expand later
 	ctx.word_under_caret = _get_word_under_caret(edit);

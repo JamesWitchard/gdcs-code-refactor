@@ -1,6 +1,6 @@
 @tool
 
-class_name GDRF_Refector_Rename extends RefCounted
+class_name GDCR_Refector_Rename extends RefCounted
 
 # Skeleton for in-file rename (will be called from an intention or menu later)
 static func rename_in_file( edit : CodeEdit, old_name : String, new_name : String ) -> void :

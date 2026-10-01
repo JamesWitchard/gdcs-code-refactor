@@ -1,5 +1,5 @@
 @tool
-class_name GDRF_EditorHelper extends RefCounted
+class_name GDCR_EditorHelper extends RefCounted
 
 static func get_current_code_edit( plugin : EditorPlugin ) -> CodeEdit :
 	var script_editor : ScriptEditor = plugin.get_editor_interface().get_script_editor();

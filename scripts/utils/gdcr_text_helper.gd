@@ -1,5 +1,5 @@
 @tool
-class_name GDRF_TextHelper extends RefCounted
+class_name GDCR_TextHelper extends RefCounted
 
 static func insert_text( edit : CodeEdit, line : int, column : int, text : String ) -> void :
 	if (!is_instance_valid(edit)) : return; 

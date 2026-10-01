@@ -1,5 +1,5 @@
 @tool
-class_name GDRF_ScriptContext extends RefCounted
+class_name GDCR_ScriptContext extends RefCounted
 
 var _edit : CodeEdit;
 var _source_code : String;
