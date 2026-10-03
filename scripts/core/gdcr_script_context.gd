@@ -13,6 +13,12 @@ var word_under_caret : String = "";
 var line_until_caret : String = "";
 var is_inside_function : bool = false;
 var current_function_name : String = "";
+var is_function_call : bool = false;
+var function_call_name : String = "";
+var has_parentheses : bool = false;
+
+
+
 # add more fields later (parsed calls, signals, local vars, etc.)
 
 func _init( edit ) -> void :

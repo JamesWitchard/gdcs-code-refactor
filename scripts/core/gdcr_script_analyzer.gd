@@ -8,6 +8,15 @@ static func build_context( edit : CodeEdit ) -> GDCR_ScriptContext :
 	ctx.word_under_caret = _get_word_under_caret(edit);
 	ctx.line_until_caret = ctx.current_line_text.substr(0, ctx.caret_col);
 	
+	# look for parenthesis at the end of word_under_caret and fill out variables
+	if ( ctx.current_line_text.find("(", 0) >= 0) :
+		# has opening parenthesis, dont need to check for closing until 
+		# we implement member extraction
+		ctx.has_parentheses = true;
+	ctx.is_function_call = ctx.has_parentheses;
+	
+	print( "Is word under text a function call? ", ctx.is_function_call)
+	
 	# TODO: Detect if inside a function, current function name, etc
 	# TODO: Regex for function calls, signal emits, connects...
 	
