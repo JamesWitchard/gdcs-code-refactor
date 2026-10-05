@@ -15,6 +15,8 @@ func show_intentions( edit : CodeEdit ) -> void :
 	var context : GDCR_ScriptContext = GDCR_ScriptAnalyzer.build_context(edit);
 	var available : Array[GDCR_IntentionBase] = [];
 	
+	if ( !is_instance_valid(context) ) : return;
+	
 	for intention in intentions :
 		if ( intention.is_available(context)) :
 			available.append(intention);
@@ -28,6 +30,7 @@ func show_intentions( edit : CodeEdit ) -> void :
 	print("[%s] Available intentions:" % GDCR_Constants.PLUGIN_NAME);
 	for intention in available :
 		print("  - ", intention.get_text(context));
+		intention.apply(context);
 	
 	pass;
 
