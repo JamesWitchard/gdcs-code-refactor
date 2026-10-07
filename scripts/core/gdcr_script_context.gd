@@ -19,15 +19,17 @@ var function_call_name : String = "";
 var has_parentheses : bool = false;
 var parenthesis_col : int = 0;
 var function_exists : bool = false;
+var is_class_function : bool = false;
+
 
 
 
 # add more fields later (parsed calls, signals, local vars, etc.)
 
 func _init( edit : CodeEdit ) -> void :
-    _edit = edit;
-    source_code = _edit.text;
-    caret_line = _edit.get_caret_line();
-    caret_col = _edit.get_caret_column();
-    current_line_text = _edit.get_line(caret_line);
-    selected_text = _edit.get_selected_text();
+	_edit = edit;
+	source_code = _edit.text;
+	caret_line = _edit.get_caret_line();
+	caret_col = _edit.get_caret_column();
+	current_line_text = _edit.get_line(caret_line);
+	selected_text = _edit.get_selected_text();
